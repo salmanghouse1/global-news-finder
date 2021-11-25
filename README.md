@@ -3,7 +3,7 @@
 
 ## User Story
 
-* As a tourist I want to be able to find information and news on a Country
+* As a user I want to be able to find information and news on a Country
 * When I search a Country name
 * Then I am presented the language, currency, capital, and recent news of that country
 
@@ -34,7 +34,7 @@ GitHub: Shayneous
 
 Rest Countries Api
 
-News Api
+SauravKanchan/NewsAPI
 
 ## Additional Notes
 
