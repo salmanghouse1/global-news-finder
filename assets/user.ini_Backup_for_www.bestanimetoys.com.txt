@@ -1,0 +1,5 @@
+; Wordfence WAF
+auto_prepend_file = '/home/fatlossi/bestanimetoys/wordfence-waf.php'
+; END Wordfence WAF
+
+

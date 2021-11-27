@@ -6,77 +6,145 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global News Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/components.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./assets/css/stylesheet.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"> -->
+
+    <style>
+        @media screen and (max-width: 3000px) {
+            h1 {
+                text-align: center;
+                font-family: 'Zen Antique Soft', serif;
+            }
+            section p {
+                font-family: 'Zen Antique Soft', serif;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- Creating header -->
-    <header>
-        <h1>Global News Finder</h1>
-    </header>
-    <!-- creating description -->
-    <section>
-        <p>This is an app that will allow tourists to find info and news on countries</p>
-    </section>
-    <section>
-        <select>
-            <option>Country 1 Place holder</option>
-            
-            <option>Country 2 Place holder</option>
-            
-            <option>Country 3 Place holder</option>
-        </select> </section>
+    <div class="container flex flex-col p-10 bg-blue-500">
+        <!-- min-h-screen sm:max-w-full md:max-w-full lg:max-w-full -->
+        <!-- bg-gradient-to-r from-gray-400 to-green-500 sm:flex md:flex lg:flex -->
+        <header class="flex-1">
+            <h1 class="text-center flex-1 lg:text-9xl sm:text-base">Global News Finder
+                <!-- sm:h-full sm:w-36 md:h-full md:w-48 lg:w-50 lg:text-2xl md:text-2xl -->
+            </h1>
+        </header>
+        <!-- creating description -->
+        <section class="shadow flex-1 bg-white p-2">
+            <p class="twelve columns sm:text-sm text-center"> This is an app that will allow tourists to find info and news on countries. Select a country!
+            </p>
+        </section>
+        <section class="flex flex-row pt-10 text-center justify-center">
+            <select class="h-16 w-52 sm:w-16 md:w-52 p-2">
+                <option>&#127470;&#127475;India
+                </option>
 
-    <!-- article or content -->
-    <article>
-        <div>
-            <h2>Country Name</h2>
+                    <option>&#127482;&#127480;USA
+                        </option>
 
-            <img id='flag' class="flag" src=''>
-            <img id='coatOfArms' class="coat-of-arms" src=''>
+                            <option>&#127462;&#127482;Australia
+                                </option>
+                                
+                            <option>&#127479;&#127482;Russia
+                            </option>
+                            
+                            <option>&#127467;&#127479;France
+                            </option>
+                            <option>&#127468;&#127463;United Kingdom
+                            </option>
+                                    </select>
+            <button class='bg-yellow-100 p-2 ml-10 rounded hover:rounded-2xl hover:bg-blue-900 hover:text-white'>Get Info</button>
+        </section>
+
+        <!-- article or content -->
+        <article class="flex flex-col mt-2">
+            <div class='flex flex-row  bg-yellow-100 p-10 mt-10 rounded-2xl bg-gradient-to-r from-green-400 to-blue-500 border-black border-2 shadow-2xl'>
+                <h2 class='md:text-9xl font-semibold text-center'> Country Name
+                </h2>
+                <div class='m-2 flex flex-col items-end'>
+                    <img id='flag' class="flag w-56 mb-10" src='./assets/Flag_of_Canada_(Pantone).svg'>
+                    <img id='coatOfArms' class="coat-of-arms flag w-56 mb-10" src='./assets/1200px-Coat_of_arms_of_Canada.svg.png'>
+                </div>
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d184552.57290182926!2d-79.51814296517412!3d43.718155660701214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb90d7c63ba5%3A0x323555502ab4c477!2sToronto%2C%20ON!5e0!3m2!1sen!2sca!4v1638043550092!5m2!1sen!2sca"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
             <ul>
-                <li>Currency</li>
+                <li> Currency
+                </li>
 
-                <li>Language</li>
+                <li> Language
+                </li>
 
-                <li>Capital</li>
+                <li> Capital
+                </li>
 
-                <li>Population</li>
+                <li> Population
+                </li>
             </ul>
-        </div>
-        <div>
-            <div><img src=''>
-                <h2>Title</h2>
-                <p>Author</p>
-                <p>Excerpt</p>
+            <div class='w-full border-black'>
+
             </div>
 
-            <div><img src=''>
-                <h2>Title</h2>
-                <p>Author</p>
-                <p>Excerpt</p>
-            </div>
+            <h2> Title
+            </h2>
+            <p> Author
+            </p>
+            <p> Excerpt
+            </p>
+            >
 
-            <div><img src=''>
-                <h2>Title</h2>
-                <p>Author</p>
-                <p>Excerpt</p>
-            </div>
+            <h2> Title
+            </h2>
+            <p> Author
+            </p>
+            <p> Excerpt
+            </p>
+    </div>
 
-        </div>
+    <div>
+        <img src=''>
+        <h2> Title
+        </h2>
+        <p> Author
+        </p>
+        <p> Excerpt
+        </p>
+    </div>
+
+    </div>
 
     </article>
     <footer>
-        <h3>Reference:</h3>
+        <h3> Reference:
+        </h3>
         <ul>
-            <li>BBC News</li>
+            <li> BBC News
+            </li>
         </ul>
-        <h3>Api Source</h3>
+        <h3>
+            Api Source
+        </h3>
         <ul>
-            <li>https://github.com/SauravKanchan/NewsAPI</li>
-            <li>REST Countries API</li>
+            <li> https: //github.com/SauravKanchan/NewsAPI
+            </li>
+            <li> REST Countries API
+            </li>
         </ul>
     </footer>
+    </div>
+
 </body>
-<script src="./assets/js/script.js"></script>
+<script src="./assets/js/script.js ">
+</script>
 
 </html>
