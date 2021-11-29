@@ -1,1 +1,1 @@
-$(document).foundation()
+//Implementing some gsap animations
