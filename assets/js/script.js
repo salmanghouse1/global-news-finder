@@ -11,12 +11,6 @@ select.innerHTML = `
 <option value="us">United States of America</option>
 `;
 
-//^ Problems
-//! There are some articles that don't have authors, they return the text content "null"
-//! Some articles also don't have images, they will return "No Image Available" since I put that as the alt tag
-
-//* country=us needs to be changed to match the input, each country name can only be specified with 2 characters, for example canada = ca, russia = ru
-
 //^ Making select work
 let country = "";
 function selectCountry() {
@@ -26,7 +20,6 @@ function selectCountry() {
 }
 
 function countryNews(country) {
-  //todo Remember to open this up using live server
   const newsUrl = `https://saurav.tech/NewsAPI//top-headlines/category/general/${country}.json`;
 
   // //^ Variables
@@ -52,14 +45,15 @@ function countryNews(country) {
           const description = document.createElement("p");
           //* Add data
           output += `
+          <a href="${element.url}" target=_blank>${element.source.name}
             <div class="news">
                 <img src="${element.urlToImage}" alt="No Image Available" height=100px width=100px />
                 <h2>${element.title}</h2>
                 <p>${element.author}</p>
                 <p>${element.description}</p>
-                <a href="${element.url}" target=_blank>${element.source.name}</a>
-            </div>
-            `;
+                </div>
+            </a>
+                `;
 
           //* Append to div
           newsSection.innerHTML = output;
