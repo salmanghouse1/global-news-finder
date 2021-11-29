@@ -1,3 +1,5 @@
+// -----------------------Daniel's Section-----------------------
+
 //^ Select Dropdown
 const select = document.querySelector("select");
 // console.log(select);
@@ -15,7 +17,6 @@ select.innerHTML = `
 let country = "";
 function selectCountry() {
   country = select.value;
-  console.log(country);
   return countryNews(country);
 }
 
@@ -33,10 +34,7 @@ function countryNews(country) {
       return res.json();
     })
     .then(function (data) {
-      console.log(data.articles.length);
-      console.log(data);
       data.articles.forEach(function (element, index) {
-        console.log(index);
         if (index <= 9) {
           //* Create elements
           const img = document.createElement("img");
@@ -59,25 +57,29 @@ function countryNews(country) {
           newsSection.innerHTML = output;
         }
       });
+    getRestAPI(country);
     });
 }
-let country = {};
+
+
+// -----------------------Ethan's Section-----------------------
+let maincountry = {};
 
 function appendInfo(info) {
 
-    $(".main").find("h2").html(info.officialName + " (" + info.commonName + ")");
-    $(".main").find("ul").html(
-        `<li>Currency: ` + country.currency + `</li><li>Language: ` + country.primaryLanguage + `</li><li>Capital: ` + country.capital + `</li><li>Population: ` + country.population + `</li>`
+    $("#main").find("h2").html(info.commonName);
+    $("#main").find("#change").html(
+        `<li>` + maincountry.currency + `</li><li>` + maincountry.primaryLanguage + `</li><li>` + maincountry.capital + `</li><li>` + maincountry.population + `</li>`
     );
-    $("#flag").attr({src:country.flag, width:100});
-    $("#coatOfArms").attr({src:country.coatOfArms, width:100});
+    $("#flagCoat").find("#flag").attr({src:maincountry.flag, width:50});
+    $("#flagCoat").find("#coatOfArms").attr({src:maincountry.coatOfArms, width:50});
 
 }
 
 
 function getRestAPI(countryName) {
 
-    rest_api = "https://restcountries.com/v3.1/name/" + countryName;
+    rest_api = "https://restcountries.com/v3.1/alpha/" + countryName;
 
     apiUrl = 'https://saurav.tech/NewsAPI/top-headlines/category/health/in.json';
 
@@ -88,16 +90,13 @@ function getRestAPI(countryName) {
         })
         .then(function (data) {
 
-            console.log(data)
-
             var currencyObject = data[0].currencies;
             var currency = Object.keys(currencyObject);
 
             var languageObject = data[0].languages;
             var language = Object.keys(languageObject);
 
-            country = {
-                "officialName": data[0].name.official,
+            maincountry = {
                 "commonName": data[0].name.common,
                 "currency": data[0].currencies[currency[0]].name + " (" + data[0].currencies[currency[0]].symbol + " " + currency[0] + ")",
                 "primaryLanguage": data[0].languages[language[0]],
@@ -108,11 +107,11 @@ function getRestAPI(countryName) {
                 "coatOfArms": data[0].coatOfArms.png
             }
 
-            appendInfo(country);
+            appendInfo(maincountry);
 
         })
         .catch(err => console.error(err));
 
 };
 
-getRestAPI("China");
+
