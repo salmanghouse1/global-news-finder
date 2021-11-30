@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Places Search Box</title>
-    <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly&channel=2" async></script>
+
     <script src="./script.js"></script>
-  </head>
-  <body>
-    <input
-      id="pac-input"
-      class="controls"
-      type="text"
-      placeholder="Search Box"
-    />
+
+</head>
+
+<body>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
     <div id="map"></div>
 
-    
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly&channel=2"
-      async
-    ></script>
-  </body>
+
+</body>
+
 </html>
