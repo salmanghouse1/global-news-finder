@@ -38,6 +38,7 @@ function countryNews(country) {
             return res.json();
         })
         .then(function(data) {
+            console.log(articles);
             data.articles.forEach(function(element, index) {
                 if (index <= 9) {
                     //* Create elements
