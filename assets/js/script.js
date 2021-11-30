@@ -123,6 +123,7 @@ function getRestAPI(countryName) {
 }
 
 //--------------------- Shayne's Section-------------------
+
 function initAutocomplete() {
   const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -33.8688, lng: 151.2195 },
@@ -131,9 +132,11 @@ function initAutocomplete() {
   });
   // Create the search box and link it to the UI element.
   const input = document.getElementById("pac-input");
-  const searchBox = new google.maps.places.SearchBox(input);
+  const searchBox = new google.maps.places.SearchBox(input || select.value);
 
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+    input || select.value
+  );
   // Bias the SearchBox results towards current map's viewport.
   map.addListener("bounds_changed", () => {
     searchBox.setBounds(map.getBounds());
