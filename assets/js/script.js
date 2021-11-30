@@ -1,48 +1,50 @@
 // -----------------------Daniel's Section-----------------------
 
 //^ Select Dropdown
-const select = document.querySelector("select");
 // console.log(select);
-select.innerHTML = `
-<option>Select Country</option>
-<option value="au">Australia</option>
-<option value="fr">France</option>
-<option value="in">India</option>
-<option value="ru">Russia</option>
-<option value="gb">United Kingdom</option>
-<option value="us">United States of America</option>
-`;
+
 
 //^ Making select work
 let country = "";
-function selectCountry() {
-  country = select.value;
-  return countryNews(country);
-}
+// add a id for select
+var countriesID = document.getElementById('countries');
+
+// add event listener on change
+countriesID.addEventListener('change',
+    function() {
+        // added country id value to country variable
+        country = countriesID.value;
+        alert(country);
+        // passing in to
+        // function
+        countryNews(country);
+    })
+
+
 
 function countryNews(country) {
-  const newsUrl = `https://saurav.tech/NewsAPI//top-headlines/category/general/${country}.json`;
+    const newsUrl = `https://saurav.tech/NewsAPI//top-headlines/category/general/${country}.json`;
 
-  // //^ Variables
-  const newsSection = document.querySelector(".news-section");
+    // //^ Variables
+    const newsSection = document.querySelector("#newsSection");
 
-  let output = "";
+    let output = "";
 
-  // //^ Fetching
-  fetch(newsUrl)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
-      data.articles.forEach(function (element, index) {
-        if (index <= 9) {
-          //* Create elements
-          const img = document.createElement("img");
-          const title = document.createElement("h1");
-          const author = document.createElement("p");
-          const description = document.createElement("p");
-          //* Add data
-          output += `
+    // //^ Fetching
+    fetch(newsUrl)
+        .then(function(res) {
+            return res.json();
+        })
+        .then(function(data) {
+            data.articles.forEach(function(element, index) {
+                if (index <= 9) {
+                    //* Create elements
+                    const img = document.createElement("img");
+                    const title = document.createElement("h1");
+                    const author = document.createElement("p");
+                    const description = document.createElement("p");
+                    //* Add data
+                    output += `
           <a href="${element.url}" target=_blank>${element.source.name}
             <div class="news">
                 <img src="${element.urlToImage}" alt="No Image Available" height=100px width=100px />
@@ -53,12 +55,12 @@ function countryNews(country) {
             </a>
                 `;
 
-          //* Append to div
-          newsSection.innerHTML = output;
-        }
-      });
-    getRestAPI(country);
-    });
+                    //* Append to div
+                    newsSection.innerHTML = output;
+                }
+            });
+            getRestAPI(country);
+        });
 }
 
 
@@ -71,8 +73,8 @@ function appendInfo(info) {
     $("#main").find("#change").html(
         `<li>` + maincountry.currency + `</li><li>` + maincountry.primaryLanguage + `</li><li>` + maincountry.capital + `</li><li>` + maincountry.population + `</li>`
     );
-    $("#flagCoat").find("#flag").attr({src:maincountry.flag, width:50});
-    $("#flagCoat").find("#coatOfArms").attr({src:maincountry.coatOfArms, width:50});
+    $("#flagCoat").find("#flag").attr({ src: maincountry.flag, width: 50 });
+    $("#flagCoat").find("#coatOfArms").attr({ src: maincountry.coatOfArms, width: 50 });
 
 }
 
@@ -83,12 +85,12 @@ function getRestAPI(countryName) {
 
     apiUrl = 'https://saurav.tech/NewsAPI/top-headlines/category/health/in.json';
 
-    
+
     fetch(rest_api)
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
         })
-        .then(function (data) {
+        .then(function(data) {
 
             var currencyObject = data[0].currencies;
             var currency = Object.keys(currencyObject);
@@ -113,5 +115,3 @@ function getRestAPI(countryName) {
         .catch(err => console.error(err));
 
 };
-
-
