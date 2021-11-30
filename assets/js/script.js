@@ -11,9 +11,11 @@ var countriesID = document.getElementById('countries');
 
 // add event listener on change
 countriesID.addEventListener('change',
-    function() {
+    function(event) {
+
+
         // added country id value to country variable
-        country = countriesID.value;
+        country = event.target.value
         alert(country);
         // passing in to
         // function
