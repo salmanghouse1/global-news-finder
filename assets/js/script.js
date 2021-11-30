@@ -20,9 +20,3 @@
 
 
 // header is now animated with heading text
-gsap.from("#heading", {
-    y: -500,
-    opacity: 0,
-    ease: Elastic.easeOut,
-    duration: 1,
-});
