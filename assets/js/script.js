@@ -5,12 +5,12 @@ const select = document.querySelector("select");
 // console.log(select);
 select.innerHTML = `
 <option>Select Country</option>
-<option value="au">Australia</option>
-<option value="fr">France</option>
-<option value="in">India</option>
-<option value="ru">Russia</option>
-<option value="gb">United Kingdom</option>
-<option value="us">United States of America</option>
+<option value="au">&#127462;&#127482; Australia</option>
+<option value="fr">&#127467;&#127479; France</option>
+<option value="in">&#127470;&#127475; India</option>
+<option value="ru">&#127479;&#127482; Russia</option>
+<option value="gb">&#127468;&#127463; United Kingdom</option>
+<option value="us">&#127482;&#127480; USA</option>
 `;
 
 //^ Making select work
