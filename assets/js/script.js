@@ -45,11 +45,12 @@ function countryNews(country) {
                     const description = document.createElement("p");
                     //* Add data
                     output += `
-          <a href="${element.url}" target=_blank>${element.source.name}
+                    
+          <a style='display:block' href="${element.url}" target=_blank>${element.source.name}
             <div class="news border-t-4">
-                <img src="${element.urlToImage}" style="float:left;display:inline;width: 100px; padding-left: 12px; padding-right: 12px" class='pl-1 pt-2' alt="No Image Available" height=100px width=100px />
-                <h2 class='sm:text-2xl' style=''>${element.title}</h2>
-                <p>${element.author}</p>
+                <img src="${element.urlToImage}" style="float:left;display:inline;width: 100px; margin-left: 12px; margin-right: 12px" class='ml-1 mt-2' alt="No Image Available" height=100px width=100px />
+                <h2 class='sm:text-2xl md:text-1xl' style=''>${element.title}</h2>
+                <p style='color:green'>${element.author}</p>
                 <p style="text-decoration:underline">${element.description}</p>
                 </div>
             </a>
