@@ -34,6 +34,8 @@ function countryNews(country) {
             return res.json();
         })
         .then(function(data) {
+
+
             data.articles.forEach(function(element, index) {
                 if (index <= 9) {
                     //* Create elements
@@ -113,6 +115,7 @@ function getRestAPI(countryName) {
 
             document.getElementById('map').innerHTML = "";
 
+            console.log(data);
             var map = new ol.Map({
                 target: 'map',
                 layers: [
@@ -121,7 +124,7 @@ function getRestAPI(countryName) {
                     })
                 ],
                 view: new ol.View({
-                    center: ol.proj.fromLonLat([data[0].capitalInfo.latlng[1], data[0].capitalInfo.latlng[0]]),
+                    center: ol.proj.fromLonLat([data[0].latlng[1], data[0].latlng[0]]),
                     zoom: 4
                 })
             });
