@@ -14,6 +14,7 @@ select.innerHTML = `
 
 //^ Making select work
 let country = "";
+
 function selectCountry() {
   country = select.value;
   return countryNews(country);
@@ -43,17 +44,21 @@ function countryNews(country) {
           //* Add data
           output += `
           <a href="${element.url}" target=_blank>${element.source.name}
-            <div class="news">
-                <img src="${element.urlToImage}" alt="No Image Available" height=100px width=100px />
-                <h2>${element.title}</h2>
+            <div class="news border-t-4">
+                <img src="${element.urlToImage}" style="float:left;display:inline;width: 100px; padding-left: 12px; padding-right: 12px" class='pl-1 pt-2' alt="No Image Available" height=100px width=100px />
+                <h2 class='sm:text-2xl' style=''>${element.title}</h2>
                 <p>${element.author}</p>
-                <p>${element.description}</p>
+                <p style="text-decoration:underline">${element.description}</p>
                 </div>
             </a>
                 `;
 
           //* Append to div
-          newsSection.innerHTML = output;
+
+          // added slide down animation
+          $("article").slideDown(700, function () {
+            newsSection.innerHTML = output;
+          });
         }
       });
       getRestAPI(country);
@@ -100,6 +105,26 @@ function getRestAPI(countryName) {
       var languageObject = data[0].languages;
       var language = Object.keys(languageObject);
 
+      // Start open layers code
+
+      document.getElementById("map").innerHTML = "";
+
+      console.log(data);
+      var map = new ol.Map({
+        target: "map",
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM(),
+          }),
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([data[0].latlng[1], data[0].latlng[0]]),
+          zoom: 4,
+        }),
+      });
+
+      //End open layers code
+
       maincountry = {
         commonName: data[0].name.common,
         currency:
@@ -123,72 +148,79 @@ function getRestAPI(countryName) {
 }
 
 //--------------------- Shayne's Section-------------------
-function initAutocomplete() {
-  const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -33.8688, lng: 151.2195 },
-    zoom: 13,
-    mapTypeId: "roadmap",
-  });
-  // Create the search box and link it to the UI element.
-  const input = document.getElementById("pac-input");
-  const searchBox = new google.maps.places.SearchBox(input);
 
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-  // Bias the SearchBox results towards current map's viewport.
-  map.addListener("bounds_changed", () => {
-    searchBox.setBounds(map.getBounds());
-  });
+// Start open layers code
 
-  let markers = [];
+//End open layers code
 
-  // Listen for the event fired when the user selects a prediction and retrieve
-  // more details for that place.
-  searchBox.addListener("places_changed", () => {
-    const places = searchBox.getPlaces();
+// function initAutocomplete() {
+//     const map = new google.maps.Map(document.getElementById("map"), {
+//         center: { lat: -33.8688, lng: 151.2195 },
+//         zoom: 13,
+//         mapTypeId: "roadmap",
+//     });
+//     // Create the search box and link it to the UI element.
+//     const input = document.getElementById("pac-input");
+//     const searchBox = new google.maps.places.SearchBox(input || select.value);
 
-    if (places.length == 0) {
-      return;
-    }
+//     map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+//         input || select.value
+//     );
+//     // Bias the SearchBox results towards current map's viewport.
+//     map.addListener("bounds_changed", () => {
+//         searchBox.setBounds(map.getBounds());
+//     });
 
-    // Clear out the old markers.
-    markers.forEach((marker) => {
-      marker.setMap(null);
-    });
-    markers = [];
+//     let markers = [];
 
-    // For each place, get the icon, name and location.
-    const bounds = new google.maps.LatLngBounds();
+//     // Listen for the event fired when the user selects a prediction and retrieve
+//     // more details for that place.
+//     searchBox.addListener("places_changed", () => {
+//         const places = searchBox.getPlaces();
 
-    places.forEach((place) => {
-      if (!place.geometry || !place.geometry.location) {
-        console.log("Returned place contains no geometry");
-        return;
-      }
+//         if (places.length == 0) {
+//             return;
+//         }
 
-      const icon = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25),
-      };
+//         // Clear out the old markers.
+//         markers.forEach((marker) => {
+//             marker.setMap(null);
+//         });
+//         markers = [];
 
-      // Create a marker for each place.
-      markers.push(
-        new google.maps.Marker({
-          map,
-          icon,
-          title: place.name,
-          position: place.geometry.location,
-        })
-      );
-      if (place.geometry.viewport) {
-        // Only geocodes have viewport.
-        bounds.union(place.geometry.viewport);
-      } else {
-        bounds.extend(place.geometry.location);
-      }
-    });
-    map.fitBounds(bounds);
-  });
-}
+//         // For each place, get the icon, name and location.
+//         const bounds = new google.maps.LatLngBounds();
+
+//         places.forEach((place) => {
+//             if (!place.geometry || !place.geometry.location) {
+//                 console.log("Returned place contains no geometry");
+//                 return;
+//             }
+
+//             const icon = {
+//                 url: place.icon,
+//                 size: new google.maps.Size(71, 71),
+//                 origin: new google.maps.Point(0, 0),
+//                 anchor: new google.maps.Point(17, 34),
+//                 scaledSize: new google.maps.Size(25, 25),
+//             };
+
+//             // Create a marker for each place.
+//             markers.push(
+//                 new google.maps.Marker({
+//                     map,
+//                     icon,
+//                     title: place.name,
+//                     position: place.geometry.location,
+//                 })
+//             );
+//             if (place.geometry.viewport) {
+//                 // Only geocodes have viewport.
+//                 bounds.union(place.geometry.viewport);
+//             } else {
+//                 bounds.extend(place.geometry.location);
+//             }
+//         });
+//         map.fitBounds(bounds);
+//     });
+// }
