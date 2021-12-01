@@ -46,11 +46,11 @@ function countryNews(country) {
                     //* Add data
                     output += `
           <a href="${element.url}" target=_blank>${element.source.name}
-            <div class="news">
-                <img src="${element.urlToImage}" alt="No Image Available" height=100px width=100px />
-                <h2>${element.title}</h2>
+            <div class="news border-t-4">
+                <img src="${element.urlToImage}" style="float:left;display:inline;width: 100px; padding-left: 12px; padding-right: 12px" class='pl-1 pt-2' alt="No Image Available" height=100px width=100px />
+                <h2 class='sm:text-2xl' style=''>${element.title}</h2>
                 <p>${element.author}</p>
-                <p>${element.description}</p>
+                <p style="text-decoration:underline">${element.description}</p>
                 </div>
             </a>
                 `;

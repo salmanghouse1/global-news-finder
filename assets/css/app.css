@@ -1,6 +1,6 @@
-        h1 {
+        header h1 {
             text-align: center;
-            font-family: 'Zen Antique Soft', serif!important;
+            font-family: 'Zen Antique Soft'!important;
         }
         
         section p {
@@ -9,6 +9,8 @@
         
         .container {
             max-width: 100%!important;
+            width: 100%!important;
+            position: absolute!important;
         }
         
         .coat-of-arms {
@@ -19,11 +21,13 @@
             height: 50px;
         }
         
-        @media screen and(min-width:640px) {}
-        
         @media screen and(min-width:768px) {
             .coat-of-arms {
                 width: 100px!important;
+            }
+            .map {
+                height: 400px;
+                width: 100%;
             }
         }
         
