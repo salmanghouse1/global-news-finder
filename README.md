@@ -1,16 +1,21 @@
-# global-news-finder
+# Global News Finder
 
+## Website URL:
+[Global News Finder](https://salmanghouse1.github.io/global-news-finder/)
 
-## User Story
+## User Story:
 
-* As a user I want to be able to find information and news on a Country
-* When I search a Country name
-* Then I am presented the language, currency, capital, and recent news of that country
+* AS A TOURIST 
+* I WANT to be able to find information and news on a Country
+* WHEN I select a country name
+* THEN I am presented the language, currency, capital, population and recent news of that country
 
+## Screenshots:
+![Global News Find](https://user-images.githubusercontent.com/90983346/144674823-d622358e-67f0-435f-aeb0-59a92e547634.png)
 
-*An app that gets country info and news
+![Global News Find (1)](https://user-images.githubusercontent.com/90983346/144674890-9b93615e-8ae6-4ddf-9e41-78e764dbcaca.png)
 
-## Made with HTML CSS JS:
+## Made with:
 *HTML
 *CSS
 *JS
@@ -34,17 +39,8 @@ GitHub: AhmedAlkh
 Shayne Ganness 
 GitHub: Shayneous
 
-
-
-
-
-## Api Used
+## Apis Used:
 
 Rest Countries Api
 
 SauravKanchan/NewsAPI
-
-## Additional Notes
-
-Using dropdown for country selection for added security purposes
-
