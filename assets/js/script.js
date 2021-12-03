@@ -43,8 +43,16 @@ function countryNews(country) {
           const description = document.createElement("p");
           //* Add data
           output += `
-          <a href="${element.url}" target=_blank>${element.source.name}
-            <div class="news border-t-4">
+            <div class="news shadow
+            flex-1
+            p-2
+            bg-gradient-to-r
+            from-indigo-400
+            to-green-500
+            border-black border-2
+            shadow-2xl
+            rounded-2xl">
+                <a href="${element.url}" target=_blank>${element.source.name}
                 <img src="${element.urlToImage}" style="float:left;display:inline;width: 100px; padding-left: 12px; padding-right: 12px" class='pl-1 pt-2' alt="No Image Available" height=100px width=100px />
                 <h2 class='sm:text-2xl' style=''>${element.title}</h2>
                 <p>${element.author}</p>
@@ -106,7 +114,7 @@ function getRestAPI(countryName) {
       var language = Object.keys(languageObject);
 
       // Start open layers code
-
+      
       document.getElementById("map").innerHTML = "";
 
       console.log(data);

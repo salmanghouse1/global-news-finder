@@ -11,9 +11,9 @@
 * THEN I am presented the language, currency, capital, population and recent news of that country
 
 ## Screenshots:
-![Global News Find](https://user-images.githubusercontent.com/90983346/144674823-d622358e-67f0-435f-aeb0-59a92e547634.png)
+![Global News Find (2)](https://user-images.githubusercontent.com/90983346/144682504-3c072625-a1b5-48a8-83cf-670da62690b6.png)
 
-![Global News Find (1)](https://user-images.githubusercontent.com/90983346/144674890-9b93615e-8ae6-4ddf-9e41-78e764dbcaca.png)
+![Global News Find (3)](https://user-images.githubusercontent.com/90983346/144682540-2e89ff7e-1d5e-4e80-b5c3-74f8dbfe9d9e.png)
 
 ## Made with:
 *HTML
