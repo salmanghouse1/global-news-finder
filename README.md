@@ -8,27 +8,35 @@
 * Then I am presented the language, currency, capital, and recent news of that country
 
 
+*An app that gets country info and news
+
 ## Made with HTML CSS JS:
 *HTML
 *CSS
 *JS
+*JQuery
+*GSAP
 
 ## Made By:
 
 Salman Ghouse
-salmanghouse1
+Github:salmanghouse1
 
 Daniel Arzanipour  
-DanielArzani
+Github:DanielArzani
 
 Zhen Fu Chong  
-EthanC29
+Github:EthanC29
 
 Ahmed Alkhatib 
 GitHub: AhmedAlkh
 
 Shayne Ganness 
 GitHub: Shayneous
+
+
+
+
 
 ## Api Used
 
